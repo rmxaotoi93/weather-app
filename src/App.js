@@ -2,6 +2,18 @@ import React, { Component } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import {cities} from './components/cities'
 import "./App.css"
+import AwesomeComponent from './Spinner'
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+import spinner from 'react-spinkit';
+
+// Can be a string as well. Need to ensure each key-value pair ends with ;
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 
 export default class App extends Component {
   
@@ -65,14 +77,13 @@ export default class App extends Component {
 
   render() {
     const {
-      isLoading,
       location,
       temperature,
       description,
       country
     } = this.state
     if (this.state.isLoading == true) {
-      return (<div>Loading data</div>)
+      return <AwesomeComponent/>
     }
     else{return (
       <div className="container-fluid text-white my-auto">
